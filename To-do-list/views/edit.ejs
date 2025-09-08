@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Task</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>✏️ Edit Task</h1>
+
+        <form action="/updateTask" method="post" class="todo-form">
+            <input type="text" value="<%= singleData.id %>" name="id" hidden>
+            
+            <input type="text" value="<%= singleData.task %>" name="task" required>
+
+            <select name="priority" required>
+                <option value="High" <%= singleData.priority === "High" ? "selected" : "" %>>High</option>
+                <option value="Medium" <%= singleData.priority === "Medium" ? "selected" : "" %>>Medium</option>
+                <option value="Low" <%= singleData.priority === "Low" ? "selected" : "" %>>Low</option>
+            </select>
+
+            <button type="submit">💾 Update Task</button>
+        </form>
+    </div>
+</body>
+</html>

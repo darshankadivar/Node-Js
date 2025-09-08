@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📝 To-Do List</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>📝 To-Do List</h1>
+
+        <form action="/addTask" method="post" class="todo-form">
+            <input type="text" placeholder="Enter task" name="task" required>
+            <select name="priority" required>
+                <option value="">Select Priority</option>
+                <option value="High">High</option>
+                <option value="Medium">Medium</option>
+                <option value="Low">Low</option>
+            </select>
+            <button type="submit">➕ Add Task</button>
+        </form>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Task</th>
+                    <th>Priority</th>
+                    <th colspan="2">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% todos.map((e)=> { %>
+                    <tr class="row">
+                        <td><%= e.id %></td>
+                        <td><%= e.task %></td>
+                        <td class="priority <%= e.priority.toLowerCase() %>"><%= e.priority %></td>
+                        <td><a href="/editTask?id=<%= e.id %>" class="btn edit">✏️ Edit</a></td>
+                        <td><a href="/deleteTask/<%= e.id %>" class="btn delete">🗑️ Delete</a></td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
