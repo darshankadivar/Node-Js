@@ -1,5 +1,6 @@
 const express = require("express");
 const port = 1008
+const path = require("path")
 
 const app = express()
 
@@ -12,12 +13,21 @@ let students = [
 
 app.set("view engine","ejs")
 app.use(express.urlencoded({extended: true}))
+app.use("/",express.static(path.join(__dirname,"public")))
+
+const middleware = (req,res,next)=>{
+    if(Number(req.body.age) >= 18){
+        next()
+    }else{
+        res.redirect("/")
+    }
+}
 
 app.get("/",(req,res)=>{
     res.render("index",{students})
 })
 
-app.post("/addData",(req,res)=>{
+app.post("/addData",middleware,(req,res)=>{
     req.body.id = students.length+1
     students.push(req.body)
     res.redirect("/")
