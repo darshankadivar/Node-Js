@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/updateData" method="post" enctype="multipart/form-data">
+        <input type="hidden" value="<%=singleData.id%>"  placeholder="enter id" name="id">
+        <input type="text" value="<%=singleData.name%>"  placeholder="enter name" name="name">
+        <input type="number" value="<%=singleData.age%>" placeholder="enter age" name="age">
+        <input type="file" name="image">
+        <img src="<%=singleData.image%>" width="15%" alt="">
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

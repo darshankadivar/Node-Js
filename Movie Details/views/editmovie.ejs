@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Movie</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="form-container">
+    <h1>✏ Edit Movie</h1>
+    <form action="/updateData" method="post" enctype="multipart/form-data">
+      <input type="text" value="<%=singleData.id%>" hidden name="id">
+
+      <label>Movie Title:</label>
+      <input type="text" value="<%=singleData.title%>" name="title">
+
+      <label>Category:</label>
+      <input type="text" value="<%=singleData.category%>" name="category">
+
+      <label>Release Year:</label>
+      <input type="number" value="<%=singleData.releaseyear%>" name="releaseyear">
+
+      <label>Rating:</label>
+      <input type="number" value="<%=singleData.rating%>" name="rating" min="1" max="10">
+
+      <label>Description:</label>
+      <textarea name="description" rows="4"><%=singleData.description%></textarea>
+
+      <label>Movie Image:</label>
+      <input type="file" name="image">
+
+      <img src="<%=singleData.image%>" width="100%" style="border-radius:8px; margin:10px 0;">
+
+      <button type="submit">Update Movie</button>
+    </form>
+  </div>
+</body>
+</html>

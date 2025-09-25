@@ -8,10 +8,12 @@
 <body>
     <h1>Edit Data</h1>
 
-    <form action="/updateData" method="post">
+    <form action="/updateData" method="post" enctype="multipart/form-data">
         <input type="text" value="<%=singleData.id%>" hidden placeholder="enter your name" name="id">
         <input type="text" value="<%=singleData.name%>" placeholder="enter your name" name="name">
         <input type="text" value="<%=singleData.age%>" placeholder="enter your age" name="age">
+        <input type="file" name="image">
+        <img src="<%=singleData.image%>" width="10%" alt="">
         <button type="submit">Submit</button>
     </form>
 </body>

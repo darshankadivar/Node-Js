@@ -7,10 +7,15 @@ const Schema = mongoose.Schema({
         type: String,
         required: true
     },
-        "age": {
+    "age": {
         type: Number,
         required: true
+    },
+    "image": {
+        type: String,
+        required: true
     }
+
 })
 
 const firstSchema = mongoose.model("CrudBasic",Schema);

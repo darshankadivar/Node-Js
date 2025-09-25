@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie Store</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="movie-navbar">
+    <div class="logo">🎬 Movie Time</div>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+
+    <div class="nav-btn">
+      <a href="/addmovie" class="btn-add">+ Add Movie</a>
+    </div>
+  </nav>
+
+  <!-- Movie Cards -->
+  <div class="movies-container">
+    <% data.map((e,i)=>{ %>
+      <div class="movie-card">
+        <img src="<%=e.image%>" alt="<%=e.title%>">
+        <div class="movie-info">
+          <h3><%=e.title%></h3>
+          <p>Category: <%=e.category%></p>
+          <p>Year: <%=e.releaseyear%></p>
+          <p>Rating: ⭐ <%=e.rating%>/10</p>
+          <p><%=e.description.substring(0,60)%>...</p>
+
+          <div class="card-actions">
+            <a href="/editData?id=<%=e.id%>" class="edit">✏ Edit</a>
+            <a href="/deleteData?id=<%=e.id%>" class="delete">🗑 Delete</a>
+          </div>
+        </div>
+      </div>
+    <% }) %>
+  </div>
+</body>
+</html>
